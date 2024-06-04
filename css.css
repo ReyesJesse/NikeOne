@@ -1,0 +1,344 @@
+
+body {
+    box-sizing: border-box;
+    padding: 0;
+    overflow: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    color: white;
+    font-weight: 200
+}
+
+@font-face {
+    font-family: nike;
+    src: url(nikeFont.otf);
+}
+
+nav {
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FF1925;
+}
+
+.whiteLogo {
+    filter: invert(100%);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+ul li {
+    margin-right: 20px;
+}
+
+ul li:first-child {
+    margin-right: auto;
+}
+
+ul li:nth-last-child(2) {
+    margin-left: auto;
+}
+
+ul li:last-child {
+    margin-left: 0;
+}
+
+.backgroundColor {
+    background-color: #FF1925;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.spotlight {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 900px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+}
+
+ul a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    z-index: 4;
+}
+
+ul a::before,
+ul a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 0;
+    height: 1px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+ul a::before {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+ul a::after {
+    right: 50%;
+    transform: translateX(50%);
+}
+
+ul a:hover::before,
+ul a:hover::after {
+    width: 100%;
+}
+
+.centered-text {
+    font-family: nike;
+    font-weight: 900;
+    letter-spacing: -45px;
+    font-size: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.logo-image {
+    width: 500px;
+    position: absolute;
+    top: 15%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.logo-image[src="sneakerdisplay2.png"],
+.logo-image[src="sneakerdisplay3.png"],
+.logo-image[src="sneakerdisplay4.png"] {
+    width: 500px;
+    position: absolute;
+    top: 15%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.product-description {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+.product-description h2 {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.product-description p {
+    margin: 5px 0;
+    line-height: 45px;
+}
+
+.size-options {
+    line-height: 50px;
+    margin-top: 20px;
+}
+
+.size-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    margin-top: 60px;
+}
+
+.size {
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+.size:hover {
+    background-color: white;
+    color: black;
+}
+
+.color-options {
+    margin-top: 100px;
+}
+
+.color-circle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    vertical-align: middle;
+
+}
+
+.color-circle:hover {
+    transform: scale(1.1);
+}
+
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+}
+
+#color1 + .color-circle {
+    background-color: rgb(249, 0, 0);
+}
+
+#color2 + .color-circle {
+    background-color: blue;
+}
+
+#color3 + .color-circle {
+    background-color: green;
+}
+
+#color4 + .color-circle {
+    background-color: #7F00FF;
+}
+
+@keyframes borderAnimation {
+    0% { border-color: transparent; transform: scale(1); }
+    50% { border-color: white; transform: scale(1.2); }
+    100% { border-color: transparent; transform: scale(1); }
+}
+
+input[type="radio"]:checked + .color-circle {
+    border: 1px solid transparent;
+    animation: borderAnimation 1s ease-in-out infinite;
+}
+
+.description {
+    position: absolute;
+    top: 75%;
+    right: 5%;
+    width: 450px;
+}
+
+.arrow-circles {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    z-index: 8;
+}
+
+.arrow-circle {
+    border: 1px solid white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 25px;
+    z-index: 8;
+}
+
+.arrow-circle:hover {
+    cursor: pointer;
+    z-index: 8;
+}
+@media screen and (max-width: 768px) {
+   
+    ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    ul li {
+        display: none;
+    }
+
+    ul li:first-child, /* Logo */
+    ul li:nth-last-child(2), /* User icon */
+    ul li:last-child { /* Cart icon */
+        display: inline;
+    }
+
+    .spotlight {
+        width: 700px;
+        height: 700px;
+    }
+
+    .color-options {
+        margin-top: 50px;
+    }
+
+    .color-circle {
+        width: 15px;
+        height: 15px;
+    }
+
+    .product-description {
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+    }
+
+    .size-options {
+        margin-top: 10px;
+    }
+
+    .size {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .centered-text {
+        font-size: 200px;
+    }
+
+    .logo-image,
+    .logo-image[src="sneakerdisplay2.png"],
+    .logo-image[src="sneakerdisplay3.png"],
+    .logo-image[src="sneakerdisplay4.png"] {
+        width: 373px;
+    }
+
+    .description {
+        position: absolute;
+        right: auto;
+        transform: none;
+        width: 100%; /* Full width on smaller screens */
+        margin-top: 20px; /* Adjust spacing */
+    }
+    .centered-text {
+        letter-spacing: -15px;
+    }
+  
+}
